@@ -10,9 +10,9 @@ Auth SAML Create User
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
-    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
-    :alt: License: LGPL-3
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+    :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fserver--auth-lightgray.png?logo=github
     :target: https://github.com/OCA/server-auth/tree/11.0/auth_saml_create_user
     :alt: OCA/server-auth
@@ -74,6 +74,8 @@ Other credits
 The development of this module has been financially supported by:
 
 * Savoir-faire Linux
+* Odoo Community Association (OCA)
+
 
 Maintainers
 ~~~~~~~~~~~
