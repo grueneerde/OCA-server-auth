@@ -60,6 +60,13 @@ class ResUsers(models.Model):
         if not http.request:
             return
 
+        # We do not want to check for timed out sessions on the ignored URLS
+        # As it will generate a redirection loop
+        ignored_urls = self._auth_timeout_get_ignored_urls()
+
+        if http.request.httprequest.path in ignored_urls:
+            return
+
         session = http.request.session
 
         # Calculate deadline
@@ -87,9 +94,6 @@ class ResUsers(models.Model):
         # If session terminated, all done
         if terminated:
             raise SessionExpiredException("Session expired")
-
-        # Else, conditionally update session modified and access times
-        ignored_urls = self._auth_timeout_get_ignored_urls()
 
         if http.request.httprequest.path not in ignored_urls:
             if 'path' not in locals():
