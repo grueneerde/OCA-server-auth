@@ -3,6 +3,7 @@
 
 from contextlib import contextmanager
 from datetime import datetime, timedelta
+from unittest.mock import patch, MagicMock
 from unittest import mock
 
 from odoo.http import Response
@@ -46,16 +47,16 @@ class TestPasswordSecurityHome(TransactionCase):
             "web_auth_signup",
             "web_auth_reset_password",
         ]
-        with mock.patch.multiple(
+        with patch.multiple(
             main.AuthSignupHome, **{m: mock.DEFAULT for m in methods}
         ) as _super:
             mocks = {}
             for method in methods:
                 mocks[method] = _super[method]
                 mocks[method].return_value = MockResponse()
-            with mock.patch("%s.request" % IMPORT) as request:
-                with mock.patch("%s.ensure_db" % IMPORT) as ensure:
-                    with mock.patch("%s.http" % IMPORT) as http:
+            with patch("%s.request" % IMPORT) as request:
+                with patch("%s.ensure_db" % IMPORT) as ensure:
+                    with patch("%s.http" % IMPORT) as http:
                         http.redirect_with_hash.return_value = MockResponse()
                         mocks.update(
                             {"request": request, "ensure_db": ensure, "http": http,}
@@ -129,7 +130,7 @@ class TestPasswordSecurityHome(TransactionCase):
     def test_web_auth_signup_invalid_qcontext(self):
         """ It should catch PassError and get signup qcontext """
         with self.mock_assets() as assets:
-            with mock.patch.object(
+            with patch.object(
                 main.AuthSignupHome, "get_auth_signup_qcontext",
             ) as qcontext:
                 assets["web_auth_signup"].side_effect = MockPassError
@@ -140,7 +141,7 @@ class TestPasswordSecurityHome(TransactionCase):
     def test_web_auth_signup_invalid_render(self):
         """ It should render & return signup form on invalid """
         with self.mock_assets() as assets:
-            with mock.patch.object(
+            with patch.object(
                 main.AuthSignupHome, "get_auth_signup_qcontext", spec=dict
             ) as qcontext:
                 assets["web_auth_signup"].side_effect = MockPassError
@@ -155,13 +156,13 @@ class TestPasswordSecurityHome(TransactionCase):
     def test_web_auth_reset_password_fail_login(self):
         """ It should raise from failed _validate_pass_reset by login """
         with self.mock_assets() as assets:
-            with mock.patch.object(
+            with patch.object(
                 main.AuthSignupHome, "get_auth_signup_qcontext", spec=dict
             ) as qcontext:
                 qcontext["login"] = "login"
                 search = assets["request"].env.sudo().search
                 assets["request"].httprequest.method = "POST"
-                user = mock.MagicMock()
+                user = MagicMock()
                 user._validate_pass_reset.side_effect = MockPassError
                 search.return_value = user
                 with self.assertRaises(MockPassError):
@@ -170,13 +171,13 @@ class TestPasswordSecurityHome(TransactionCase):
     def test_web_auth_reset_password_fail_email(self):
         """ It should raise from failed _validate_pass_reset by email """
         with self.mock_assets() as assets:
-            with mock.patch.object(
+            with patch.object(
                 main.AuthSignupHome, "get_auth_signup_qcontext", spec=dict
             ) as qcontext:
                 qcontext["login"] = "login"
                 search = assets["request"].env.sudo().search
                 assets["request"].httprequest.method = "POST"
-                user = mock.MagicMock()
+                user = MagicMock()
                 user._validate_pass_reset.side_effect = MockPassError
                 search.side_effect = [[], user]
                 with self.assertRaises(MockPassError):
@@ -185,7 +186,7 @@ class TestPasswordSecurityHome(TransactionCase):
     def test_web_auth_reset_password_success(self):
         """ It should return parent response on no validate errors """
         with self.mock_assets() as assets:
-            with mock.patch.object(
+            with patch.object(
                 main.AuthSignupHome, "get_auth_signup_qcontext", spec=dict
             ) as qcontext:
                 qcontext["login"] = "login"
@@ -196,8 +197,8 @@ class TestPasswordSecurityHome(TransactionCase):
                 )
 
 
-@mock.patch("odoo.http.WebRequest.validate_csrf", return_value=True)
-@mock.patch("odoo.http.redirect_with_hash", return_value="redirected")
+@patch("odoo.http.WebRequest.validate_csrf", return_value=True)
+@patch("odoo.http.redirect_with_hash", return_value="redirected")
 class LoginCase(HttpCase):
     def test_web_login_authenticate(self, redirect_mock, *args):
         """It should allow authenticating by login"""

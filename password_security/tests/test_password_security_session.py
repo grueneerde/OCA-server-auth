@@ -3,7 +3,7 @@
 
 from contextlib import contextmanager
 
-import mock
+from unittest.mock import patch
 
 from odoo.tests.common import TransactionCase
 
@@ -29,7 +29,7 @@ class TestPasswordSecuritySession(TransactionCase):
     @contextmanager
     def mock_assets(self):
         """ It mocks and returns assets used by this controller """
-        with mock.patch("%s.request" % IMPORT) as request:
+        with patch("%s.request" % IMPORT) as request:
             yield {
                 "request": request,
             }
@@ -46,6 +46,6 @@ class TestPasswordSecuritySession(TransactionCase):
     def test_change_password_return(self):
         """ It should return result of super """
         with self.mock_assets():
-            with mock.patch.object(main.Session, "change_password") as chg:
+            with patch.object(main.Session, "change_password") as chg:
                 res = self.password_security_session.change_password(self.fields)
                 self.assertEqual(chg(), res)

@@ -6,6 +6,7 @@
 import logging
 import re
 from datetime import datetime, timedelta
+from odoo.exceptions import ValidationError
 
 from odoo import _, api, fields, models
 
@@ -141,11 +142,11 @@ class ResUsers(models.Model):
             ".{%d,}$" % int(company_id.password_length),
         ]
         if not re.search("".join(password_regex), password):
-            raise PassError(self.password_match_message())
+            raise ValidationError(self.password_match_message())
 
         estimation = self.get_estimation(password)
         if estimation["score"] < company_id.password_estimate:
-            raise PassError(estimation["feedback"]["warning"])
+            raise ValidationError(estimation["feedback"]["warning"])
 
         return True
 
