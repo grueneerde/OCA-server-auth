@@ -10,9 +10,12 @@ setuptools.setup(
     install_requires=[
         'odoo13-addon-auth_api_key',
         'odoo13-addon-auth_from_http_remote_user',
+        'odoo13-addon-auth_jwt',
+        'odoo13-addon-auth_jwt_demo',
         'odoo13-addon-auth_ldaps',
         'odoo13-addon-auth_oauth_multi_token',
         'odoo13-addon-auth_oidc',
+        'odoo13-addon-auth_saml',
         'odoo13-addon-auth_session_timeout',
         'odoo13-addon-auth_signup_verify_email',
         'odoo13-addon-auth_user_case_insensitive',
