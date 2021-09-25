@@ -10,9 +10,11 @@ setuptools.setup(
     install_requires=[
         'odoo14-addon-auth_admin_passkey',
         'odoo14-addon-auth_api_key',
+        'odoo14-addon-auth_api_key_group',
         'odoo14-addon-auth_jwt',
         'odoo14-addon-auth_jwt_demo',
         'odoo14-addon-auth_ldaps',
+        'odoo14-addon-auth_saml',
         'odoo14-addon-auth_session_timeout',
         'odoo14-addon-auth_user_case_insensitive',
         'odoo14-addon-password_security',
