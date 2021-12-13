@@ -44,7 +44,7 @@ msgstr "Unternehmen"
 #. module: password_security
 #: model:ir.model,name:password_security.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Konfiguration "
 
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_users_pass_history__create_uid
@@ -70,7 +70,7 @@ msgstr "Tage"
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "Disallow reuse of"
-msgstr ""
+msgstr "Vermeide Wiederverwendung der letzen"
 
 #. module: password_security
 #: model:ir.model.fields,help:password_security.field_res_company__password_history
@@ -84,6 +84,9 @@ msgstr ""
 "dies auszuschalten"
 
 #. module: password_security
+#: model:ir.model.fields,field_description:password_security.field_res_company__display_name
+#: model:ir.model.fields,field_description:password_security.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:password_security.field_res_users__display_name
 #: model:ir.model.fields,field_description:password_security.field_res_users_pass_history__display_name
 msgid "Display Name"
 msgstr "Anzeigename"
@@ -97,7 +100,7 @@ msgstr "Verschlüsseltes Passwort"
 #: model:ir.model.fields,field_description:password_security.field_res_company__password_estimate
 #: model:ir.model.fields,field_description:password_security.field_res_config_settings__password_estimate
 msgid "Estimation"
-msgstr ""
+msgstr "Schätzung"
 
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_company__password_history
@@ -112,12 +115,19 @@ msgid "How many days until passwords expire"
 msgstr "Wie viele Tage bis das Passwort abläuft"
 
 #. module: password_security
+#: model:ir.model.fields,field_description:password_security.field_res_company__id
+#: model:ir.model.fields,field_description:password_security.field_res_config_settings__id
+#: model:ir.model.fields,field_description:password_security.field_res_users__id
 #: model:ir.model.fields,field_description:password_security.field_res_users_pass_history__id
 msgid "ID"
 msgstr "ID"
 
 #. module: password_security
+#: model:ir.model.fields,field_description:password_security.field_res_company____last_update
+#: model:ir.model.fields,field_description:password_security.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:password_security.field_res_users____last_update
 #: model:ir.model.fields,field_description:password_security.field_res_users_pass_history____last_update
+#, fuzzy
 msgid "Last Modified on"
 msgstr "Zuletzt verändert am"
 
@@ -158,27 +168,27 @@ msgstr "Minimale Anzahl der Zeichen"
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "Minimum number of lowercase characters"
-msgstr ""
+msgstr "Mindestanzahl von Kleinbuchstaben"
 
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "Minimum number of numeric characters"
-msgstr ""
+msgstr "Mindestanzahl numerischer Zeichen"
 
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "Minimum number of special characters"
-msgstr ""
+msgstr "Mindestanzahl von Sonderzeichen"
 
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "Minimum number of strength estimation"
-msgstr ""
+msgstr "Minimum Wert der geschätzen Passwortsicherheit"
 
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "Minimum number of uppercase characters"
-msgstr ""
+msgstr "Mindestanzahl von Großbuchstaben"
 
 #. module: password_security
 #: code:addons/password_security/models/res_users.py:107
@@ -205,7 +215,7 @@ msgstr "Passwort Regeln"
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "Password expires in"
-msgstr ""
+msgstr "Passwort läuft ab in"
 
 #. module: password_security
 #: code:addons/password_security/models/res_users.py:177
@@ -250,6 +260,8 @@ msgstr "Großbuchstaben nötig"
 #: model:ir.model.fields,help:password_security.field_res_config_settings__password_estimate
 msgid "Required score for the strength estimation. Between 0 and 4"
 msgstr ""
+"Benötigter Wert für die geschätzte Passwortsicherheit. Muss zwischen 0 und 4 "
+"liegen"
 
 #. module: password_security
 #: model:ir.model,name:password_security.model_res_users_pass_history
@@ -278,6 +290,8 @@ msgstr "Großbuchstabe"
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "Use negative number for infinite, or 0 to disable"
 msgstr ""
+"Benutze negative Zahlen für eine unendliche Gültigkeit oder 0 zum "
+"deaktivieren"
 
 #. module: password_security
 #: model:ir.model.fields,field_description:password_security.field_res_users_pass_history__user_id
@@ -287,7 +301,7 @@ msgstr "Benutzer"
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "User can change password in"
-msgstr ""
+msgstr "Benutzer kann Password in"
 
 #. module: password_security
 #: model:ir.model,name:password_security.model_res_users
@@ -332,17 +346,17 @@ msgstr ""
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "days."
-msgstr ""
+msgstr "Tagen."
 
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "hours again."
-msgstr ""
+msgstr "Stunden erneut wechseln."
 
 #. module: password_security
 #: model_terms:ir.ui.view,arch_db:password_security.res_config_settings_view_form
 msgid "previous passwords."
-msgstr ""
+msgstr "Passwörter."
 
 #~ msgid "Extra"
 #~ msgstr "Extra"
