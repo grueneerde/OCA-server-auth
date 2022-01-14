@@ -4,13 +4,13 @@
 
 {
     "name": "Saml2 Authentication",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Tools",
     "author": "XCG Consulting, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/server-auth",
     "license": "AGPL-3",
     "depends": ["base_setup"],
-    "external_dependencies": {"python": ["pysaml2"]},
+    "external_dependencies": {"python": ["pysaml2"], "deb": ["xmlsec1"]},
     "demo": [],
     "data": [
         "security/ir.model.access.csv",
