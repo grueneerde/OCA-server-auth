@@ -10,8 +10,8 @@ Allow grouping API keys together.
 Grouping per se does nothing. This feature is supposed to be used by other modules
 to limit access to services or records based on groups of keys.
     """,
-    "version": "14.0.1.0.1",
-    "development_status": "Alpha",
+    "version": "14.0.1.1.0",
+    "development_status": "Beta",
     "license": "LGPL-3",
     "website": "https://github.com/OCA/server-auth",
     "author": "Camptcamp,Odoo Community Association (OCA)",
