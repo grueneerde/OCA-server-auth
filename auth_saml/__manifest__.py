@@ -1,10 +1,10 @@
 # Copyright (C) 2020 GlodoUK <https://www.glodo.uk/>
-# Copyright (C) 2010-2016 XCG Consulting <http://odoo.consulting>
+# Copyright (C) 2010-2016, 2022 XCG Consulting <http://odoo.consulting>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Saml2 Authentication",
-    "version": "15.0.1.0.0",
+    "name": "SAML2 Authentication",
+    "version": "15.0.1.1.0",
     "category": "Tools",
     "author": "XCG Consulting, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/server-auth",
@@ -12,6 +12,8 @@
     "depends": ["base_setup"],
     "external_dependencies": {
         "python": ["pysaml2"],
+        "bin": ["xmlsec1"],
+        # special definition used by OCA to install packages
         "deb": ["xmlsec1"],
     },
     "demo": [],
@@ -24,4 +26,5 @@
     ],
     "installable": True,
     "auto_install": False,
+    "development_status": "Beta",
 }
