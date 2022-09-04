@@ -1246,6 +1246,11 @@ msgid "Vault tag"
 msgstr ""
 
 #. module: vault
+#: model_terms:ir.ui.view,arch_db:vault.view_vault_entry_search
+msgid "Vaults"
+msgstr ""
+
+#. module: vault
 #: code:addons/vault/models/vault_log.py:0
 #, python-format
 msgid "Warning"
