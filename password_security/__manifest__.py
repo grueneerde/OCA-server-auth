@@ -5,7 +5,7 @@
 {
     "name": "Password Security",
     "summary": "Allow admin to set password security requirements.",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.1.1",
     "author": "LasLabs, "
     "Kaushal Prajapati, "
     "Tecnativa, "
@@ -31,6 +31,9 @@
         "web.assets_common": [
             "/password_security/static/src/js/password_gauge.js",
             "/password_security/static/lib/zxcvbn/zxcvbn.min.js",
+        ],
+        "web.qunit_suite_tests": [
+            "password_security/static/tests/**/*",
         ],
     },
     "demo": [
