@@ -215,7 +215,10 @@ class ResUsers(models.Model):
         res = super(ResUsers, self)._set_encrypted_password(uid, pw)
         if not self.env.user.company_id.password_policy_enabled:
             return res
-        self.write({"password_history_ids": [(0, 0, {"password_crypt": pw})]})
+        # This write must be called with sudo() because not all users have permissions to write on res.user model.
+        # This is currently causing problems on PROD system because of this reason.
+        # We want to avoid giving too many privileges to the users over the model, so we use sudo() just here.
+        self.sudo().write({"password_history_ids": [(0, 0, {"password_crypt": pw})]})
         return res
 
     def action_reset_password(self):
