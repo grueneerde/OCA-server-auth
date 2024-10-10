@@ -11,7 +11,8 @@ from odoo import fields, models
 
 
 class ResCompany(models.Model):
-    _inherit = 'res.company'
+    _inherit = "res.company"
 
     saml_provider_id = fields.Many2one(
-        'auth.saml.provider', string="Default SAML Provider")
+        "auth.saml.provider", string="Default SAML Provider"
+    )

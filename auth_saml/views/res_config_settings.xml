@@ -15,8 +15,8 @@
                         <label for="allow_saml_uid_and_internal_password" />
                     </div>
                     <div class="row mt8 o_setting_right_pane">
-                        <label for="saml_provider_id" class="col-lg-4 o_light_label"/>
-                        <field name="saml_provider_id"/>
+                        <label for="saml_provider_id" class="col-lg-4 o_light_label" />
+                        <field name="saml_provider_id" />
                     </div>
                 </div>
             </xpath>

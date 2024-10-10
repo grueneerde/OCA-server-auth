@@ -185,10 +185,14 @@ class ResUser(models.Model):
         res = super().create(vals_list)
         saml_vals = []
         for user in res:
-            saml_vals.append({
-                'user_id': user.id,
-                'saml_provider_id': user.company_id.saml_provider_id.id,
-                'saml_uid': user.login,
-            })
-        self.env['res.users.saml'].create(saml_vals)
+            if user.company_id.saml_provider_id:
+                saml_vals.append(
+                    {
+                        'user_id': user.id,
+                        'saml_provider_id': user.company_id.saml_provider_id.id,
+                        'saml_uid': user.login,
+                    }
+                )
+        if saml_vals:
+            self.sudo().env['res.users.saml'].sudo().create(saml_vals)
         return res

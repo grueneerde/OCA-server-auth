@@ -14,5 +14,8 @@ class ResConfigSettings(models.TransientModel):
         config_parameter=ALLOW_SAML_UID_AND_PASSWORD,
     )
     saml_provider_id = fields.Many2one(
-        'auth.saml.provider', string="Default SAML Provider",
-        related='company_id.saml_provider_id', readonly=False)
+        "auth.saml.provider",
+        string="Default SAML Provider",
+        related="company_id.saml_provider_id",
+        readonly=False,
+    )
