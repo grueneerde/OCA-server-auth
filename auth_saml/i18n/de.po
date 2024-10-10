@@ -109,6 +109,11 @@ msgid "Button Icon CSS class"
 msgstr "CSS-Klasse für Schaltflächensymbole"
 
 #. module: auth_saml
+#: model:ir.model,name:auth_saml.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: auth_saml
 #: model:ir.model,name:auth_saml.model_res_config_settings
 msgid "Config Settings"
 msgstr "Konfigurationseinstellungen"
@@ -147,6 +152,12 @@ msgstr "Aktuelle Anfrage-ID"
 #: model:ir.model.fields,field_description:auth_saml.field_res_users_saml__saml_access_token
 msgid "Current SAML token for this user"
 msgstr "Aktuelles SAML-Token für diesen Benutzer"
+
+#. module: auth_saml
+#: model:ir.model.fields,field_description:auth_saml.field_res_company__saml_provider_id
+#: model:ir.model.fields,field_description:auth_saml.field_res_config_settings__saml_provider_id
+msgid "Default SAML Provider"
+msgstr "Standard SAML Provider"
 
 #. module: auth_saml
 #: model:ir.model.fields,field_description:auth_saml.field_auth_saml_attribute_mapping__display_name
@@ -515,7 +526,7 @@ msgstr "Zuordnung von Benutzer zu SAML-Anbieter"
 #. module: auth_saml
 #: model:ir.model,name:auth_saml.model_res_users
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"
 
 #. module: auth_saml
 #: model:ir.model.fields,field_description:auth_saml.field_auth_saml_provider__want_assertions_or_response_signed
