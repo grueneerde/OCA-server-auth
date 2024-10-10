@@ -188,11 +188,11 @@ class ResUser(models.Model):
             if user.company_id.saml_provider_id:
                 saml_vals.append(
                     {
-                        'user_id': user.id,
-                        'saml_provider_id': user.company_id.saml_provider_id.id,
-                        'saml_uid': user.login,
+                        "user_id": user.id,
+                        "saml_provider_id": user.company_id.saml_provider_id.id,
+                        "saml_uid": user.login,
                     }
                 )
         if saml_vals:
-            self.sudo().env['res.users.saml'].sudo().create(saml_vals)
+            self.sudo().env["res.users.saml"].sudo().create(saml_vals)
         return res
