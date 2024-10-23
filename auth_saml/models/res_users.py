@@ -181,18 +181,23 @@ class ResUser(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        """For each new user create SAML Provider mapping object."""
+        """For each new user create SAML Provider object."""
         res = super().create(vals_list)
         saml_vals = []
-        for user in res:
-            if user.company_id.saml_provider_id:
+        saml_provider_id = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("auth_saml.default_saml_provider_id")
+        )
+        if saml_provider_id:
+            for user in res:
                 saml_vals.append(
                     {
                         "user_id": user.id,
-                        "saml_provider_id": user.company_id.saml_provider_id.id,
+                        "saml_provider_id": int(saml_provider_id),
                         "saml_uid": user.login,
                     }
                 )
-        if saml_vals:
-            self.sudo().env["res.users.saml"].sudo().create(saml_vals)
+            if saml_vals:
+                self.env["res.users.saml"].sudo().create(saml_vals)
         return res
