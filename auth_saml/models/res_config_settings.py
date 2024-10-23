@@ -16,5 +16,5 @@ class ResConfigSettings(models.TransientModel):
     saml_provider_id = fields.Many2one(
         "auth.saml.provider",
         string="Default SAML Provider",
-        config_parameter='auth_saml.default_saml_provider_id',
+        config_parameter="auth_saml.default_saml_provider_id",
     )
