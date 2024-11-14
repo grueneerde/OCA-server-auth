@@ -39,6 +39,7 @@ addon | version | maintainers | summary
 [auth_user_case_insensitive](auth_user_case_insensitive/) | 14.0.1.0.1 |  | Makes the user login field case insensitive
 [base_user_empty_password](base_user_empty_password/) | 14.0.1.0.0 | [![grindtildeath](https://github.com/grindtildeath.png?size=30px)](https://github.com/grindtildeath) | Allows to empty password of users
 [base_user_show_email](base_user_show_email/) | 14.0.1.0.0 |  | Untangle user login and email
+[impersonate_login](impersonate_login/) | 14.0.1.0.0 | [![Kev-Roche](https://github.com/Kev-Roche.png?size=30px)](https://github.com/Kev-Roche) | tools
 [password_security](password_security/) | 14.0.1.1.0 |  | Allow admin to set password security requirements.
 [user_log_view](user_log_view/) | 14.0.1.0.0 | [![trojikman](https://github.com/trojikman.png?size=30px)](https://github.com/trojikman) | Allow to see user's actions log
 [users_ldap_groups](users_ldap_groups/) | 14.0.1.0.1 |  | Adds user accounts to groups based on rules defined by the administrator.
